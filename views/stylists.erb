@@ -1,0 +1,27 @@
+<div class="container">
+
+<br>
+
+<h1>STYLIST TEAM</h1>
+
+  <h3>Here is your salon's current roster of stylists:</h3>
+  <br><br>
+
+  <form action='/stylists' method='post'>
+
+  <ul>
+    <% @stylists.each() do |stylist| %>
+      <li><a href="/stylists/<%= stylist.id()%>"><%= stylist.name() %></a> </li>
+    <% end %>
+  </ul>
+<br><br><br><br>
+  <div class='form-group'>
+    <label for='stylist_name'>Add Stylist:</label>
+    <input id='stylist_name' name='stylist_name' class='form-control' type='text'>
+  </div>
+  <button class='btn-success'>Submit</button>
+</form>
+<br><br>
+
+  <a href="/">Home</a>
+</div>

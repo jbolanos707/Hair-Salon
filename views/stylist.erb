@@ -1,0 +1,12 @@
+<h1><%= @stylist.name() %></h1>
+
+<h3>Add A New Client:</h3>
+
+<form action='/stylists/<%= @stylist.id() %>' method='post'>
+  <div class='form-group'>
+    <input id='stylist_id' name='stylist_id' type='hidden' value='<%= @stylist.id() %>'>
+    <label for='new_client'>Enter Your Client's Name:</label>
+    <input id="new_client" name ="new_client" type='text'>
+    <button type="submit">Submit</button>
+  </div>
+</form>
