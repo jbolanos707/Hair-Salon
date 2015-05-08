@@ -10,4 +10,14 @@ class Client
     self.name.==(another_client.name)
   end
 
+  define_singleton_method(:all) do
+    returned_clients = DB.exec("SELECT * FROM clients;")
+    clients = []
+    returned_clients.each do |client|
+      name = client.fetch('name')
+      clients.push(Client.new(name: name))
+    end
+    clients
+  end
+
 end

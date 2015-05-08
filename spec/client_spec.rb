@@ -17,5 +17,11 @@ describe(Client) do
     end
   end
 
+  describe(".all") do
+    it("starts off with no names") do
+      expect(Client.all).to eq([])
+    end
+  end
+
 
 end
