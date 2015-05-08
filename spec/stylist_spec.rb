@@ -17,15 +17,23 @@ describe(Stylist) do
 
   describe("#==") do
     it("is the same stylist if the name is the same") do
-      stylist1 = Stylist.new(name: "Janey")
-      stylist2 = Stylist.new(name: "Janey")
+      stylist1 = Stylist.new(name: "Janey", id: nil)
+      stylist2 = Stylist.new(name: "Janey", id: nil)
       expect(stylist1).to eq(stylist2)
     end
   end
 
+  describe("#id") do
+    it("sets its ID when you save it") do
+      test_stylist = Stylist.new(name: "Janey", id: nil)
+      test_stylist.save
+      expect(test_stylist.id).to(be_an_instance_of(Fixnum))
+    end
+  end
+
   describe("#save") do
-    it("adds a stylist to the array of saved stylists") do
-      test_stylist = Stylist.new(name: "Janey")
+    it("lets you save stylists to the database") do
+      test_stylist = Stylist.new(name: "Janey", id: nil)
       test_stylist.save
       expect(Stylist.all).to eq([test_stylist])
     end
