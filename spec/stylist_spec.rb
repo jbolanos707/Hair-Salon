@@ -47,4 +47,15 @@ describe(Stylist) do
       expect(test_stylist.name).to eq("Jill")
     end
   end
+
+  describe("#delete") do
+    it("lets you delete a stylist from the database") do
+      test_stylist = Stylist.new(name: "Janey", id: nil)
+      test_stylist.save
+      test_stylist2 = Stylist.new(name: "Jill", id: nil)
+      test_stylist2.save
+      test_stylist2.delete
+      expect(Stylist.all).to eq([test_stylist])
+    end
+  end
 end
