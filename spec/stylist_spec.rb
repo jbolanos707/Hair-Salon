@@ -8,4 +8,10 @@ describe(Stylist) do
       expect(stylist.name).to eq("Janey")
     end
   end
+
+  describe(".all") do
+    it("starts off with no names") do
+      expect(Stylist.all).to eq([])
+    end
+  end
 end
