@@ -20,4 +20,8 @@ class Client
     clients
   end
 
+  define_method(:save) do
+    DB.exec("INSERT INTO clients (name) VALUES ('#{@name}')")
+  end
+
 end
