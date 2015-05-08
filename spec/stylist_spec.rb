@@ -38,4 +38,13 @@ describe(Stylist) do
       expect(Stylist.all).to eq([test_stylist])
     end
   end
+
+  describe("#update") do
+    it("lets you update stylists in the database") do
+      test_stylist = Stylist.new(name: "Janey", id: nil)
+      test_stylist.save
+      test_stylist.update(name: "Jill")
+      expect(test_stylist.name).to eq("Jill")
+    end
+  end
 end
